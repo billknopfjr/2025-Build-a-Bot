@@ -1,5 +1,7 @@
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class OI {
@@ -86,7 +88,7 @@ public class OI {
          *   aX.onTrue(new PrintCommand("aX"));
          */
 
-
+        dA.onTrue( new PrintCommand("" + Timer.getFPGATimestamp()));
 
     }
 }
