@@ -8,6 +8,6 @@ public class LimitSwitch {
 
     // pressed = true, not pressed = false
     public boolean isOn() {
-        return !limitSwitch.get();
+        return limitSwitch.get();
     }
 }

@@ -5,6 +5,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
@@ -43,6 +44,9 @@ public class Robot extends TimedRobot {
 
     limitSwitch = new LimitSwitch();
 
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
+    pigeon.resetPigeonPosition();
+
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();
@@ -67,7 +71,9 @@ public class Robot extends TimedRobot {
     ui.update();
 
     // Step 1 solution
-    System.out.println("Limit switch is " + limitSwitch.isOn());
+//    System.out.println(Timer.getFPGATimestamp() + "Limit switch is " + limitSwitch.isOn());
+    System.out.println("Limit switch is " + limitSwitch.isOn() + " and Pigeon Heading is " + pigeon.getCompassHeading());
+
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -117,4 +123,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {}
+
+  public static void getFPGATimestamp(){
+    System.out.println(Timer.getFPGATimestamp());
+  }
 }
